@@ -1,0 +1,124 @@
+<!-- sidenav  -->
+<app-vertical></app-vertical>
+
+<!-- end sidenav -->
+
+<main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
+  <!-- Navbar -->
+  <nav
+    class="relative sticky top-0 z-50 bg-white flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start"
+    navbar-main navbar-scroll="false">
+    <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+      <nav>
+        <!-- breadcrumb -->
+        <ol class="flex flex-wrap pt-1 mr-12  rounded-lg sm:mr-16"> <!--bg-transparent-->
+          <li class="leading-normal text-size-sm">
+            <a class="opacity-50 text-slate-700" [routerLink]="['/tablero']"><i
+              class="opacity-50 text-slate-700 cursor-pointer fas fa-home"></i></a>
+          </li>
+          <li
+            class="text-size-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+            aria-current="page">Baja Suscriptores</li>
+        </ol>
+        <h6 class="mb-0 font-bold capitalize">Baja Suscriptores</h6>
+      </nav>
+
+      <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
+        <div class="flex items-center md:ml-auto md:pr-4">
+        </div>
+        <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
+          <li class="flex items-center">
+            <a (click)="cerrarsesion()"
+              class="block px-0 py-2 cursor-pointer font-semibold transition-all ease-nav-brand text-size-sm text-slate-500">
+              <!-- <i class="fa fa-user sm:mr-1"></i> -->
+              <i class="fas fa-sign-out-alt sm:mr-1"></i>
+              <span class="hidden sm:inline">Cerrar Sesion</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end Navbar -->
+
+  <!-- cards -->
+  <div class="w-full px-6 py-6 mx-auto">
+
+    <!-- table -->
+
+
+    <div class="flex flex-wrap -mx-3">
+      <div class="flex-none w-full max-w-full px-3">
+        <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+          <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+            <h6>Baja Suscriptores</h6>
+          </div>
+          <div class="flex-auto px-0 pt-0 pb-2">
+            <div class="p-0 overflow-x-auto">
+              <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+                <thead class="align-bottom">
+                  <tr>
+                    <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Id</th>
+                    <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Suscripcion Id</th>
+                    <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Nombre</th>
+                    <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Estado</th>
+                    <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Fecha baja de suscripcion</th>
+                    <th class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-gray-200 border-solid shadow-none tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+
+                    <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                      <div class="flex px-2 pl-4 py-1">
+                        <div class="flex flex-col justify-center">
+                          <p class="mb-0 font-semibold leading-tight text-size-xs">1</p>
+                        </div>
+                      </div>
+                      <!-- <p class="mb-0 leading-tight text-size-xs text-slate-400">Organization</p> -->
+                    </td>
+                    <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                      <div class="flex px-2 pl-4 py-1">
+                        <div class="flex flex-col justify-center">
+                          <p class="mb-0 font-semibold leading-tight text-size-xs">1</p>
+                        </div>
+                      </div>
+                      <!-- <p class="mb-0 leading-tight text-size-xs text-slate-400">Organization</p> -->
+                    </td>
+                    <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                      <div class="flex px-2 py-1">
+                        <div>
+                          <img src="../assets/img/team-2.jpg" class="inline-flex items-center justify-center mr-4 text-white transition-all duration-200 ease-soft-in-out text-size-sm h-9 w-9 rounded-xl" alt="user1" />
+                        </div>
+                        <div class="flex flex-col justify-center">
+                          <h6 class="mb-0 leading-normal text-size-sm">John Michael</h6>
+                          <p class="mb-0 leading-tight text-size-xs text-slate-400">john@creative-tim.com</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="p-2 leading-normal text-center align-middle bg-transparent border-b text-size-sm whitespace-nowrap shadow-transparent">
+                      <span class="bg-gradient-red px-3.6-em text-size-xs-em rounded-1.8 py-2.2-em inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Dado de baja</span>
+                    </td>
+                    <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                      <span class="font-semibold leading-tight text-size-xs text-slate-400">23/04/18</span>
+                    </td>
+                    <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                      <a href="javascript:;" class="font-semibold leading-tight text-size-xs text-slate-400"> Editar </a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- fin table -->
+
+
+    <app-footer></app-footer>
+  </div>
+  <!-- end cards -->
+</main>
