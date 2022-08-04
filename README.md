@@ -1,4 +1,4 @@
-# Proximamente hecho con Angular 13
+# Panel admin Proximamente hecho con Angular 13
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
