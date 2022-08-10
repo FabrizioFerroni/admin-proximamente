@@ -13,7 +13,6 @@ import { BajaSuscriptoresComponent } from './components/baja-suscriptores/baja-s
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor, authInterceptorProviders } from './interceptor/auth2.interceptor';
-import { TestrefreshComponent } from './components/testrefresh/testrefresh.component';
 import { interceptorProvider } from './interceptor/auth.interceptor';
 import { intAuth } from './interceptor/auth-i.interceptor';
 
@@ -27,8 +26,7 @@ import { intAuth } from './interceptor/auth-i.interceptor';
     FooterComponent,
     SuscriptoresComponent,
     BajaSuscriptoresComponent,
-    UsuariosComponent,
-    TestrefreshComponent
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
