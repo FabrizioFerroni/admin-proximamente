@@ -4,6 +4,7 @@ import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { JwtDTO } from '../models/jwt-dto';
 
 const TOKEN_KEY = 'AuthToken';
 
@@ -12,6 +13,7 @@ const TOKEN_KEY = 'AuthToken';
   providedIn: 'root'
 })
 export class AuthService {
+  [x: string]: any;
 
   url!: string;
   constructor(
@@ -43,5 +45,20 @@ export class AuthService {
     localStorage.removeItem(TOKEN_KEY);
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token );
     return this._http.post(this.url + 'logout', token, { headers: headers });
+    // return this._http.post(this.url + 'logout', token);
+
+  }
+
+
+  refresh_token(token: string): Observable<any>{
+    // let headers = new HttpHeaders().set('Authorization', 'Bearer ' +  token );
+    // return this._http.post(this.url + 'refresh', token, { headers: headers });
+    return this._http.post(this.url + 'refresh', token);
+  }
+
+  public refresh(dto: JwtDTO): Observable<JwtDTO> {
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' +  dto );
+    return this._http.post<JwtDTO>(this.url + 'refresh', dto);
+    // return this._http.post<JwtDTO>(this.url + 'refresh', dto, { headers: headers });
   }
 }

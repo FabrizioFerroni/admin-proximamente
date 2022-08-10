@@ -54,7 +54,7 @@
                 <div>
                   <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Suscriptores</p>
                   <h5 class="mb-0 font-bold">
-                    5
+                    {{ total_sus }}
                     <!-- <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+50%</span> -->
                   </h5>
                 </div>
@@ -78,7 +78,7 @@
                 <div>
                   <p class="mb-0 font-sans font-semibold capitalize leading-normal text-size-sm">Nuevas bajas </p>
                   <h5 class="mb-0 font-bold">
-                    2
+                    {{ total_baja }}
                     <!-- <span class="leading-normal text-size-sm font-weight-bolder text-red-600">-25%</span> -->
                   </h5>
                 </div>
@@ -102,7 +102,7 @@
                 <div>
                   <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Total Suscriptores</p>
                   <h5 class="mb-0 font-bold">
-                    3
+                   {{total_sus - total_baja}}
                     <!-- <span class="leading-normal text-red-600 text-size-sm font-weight-bolder">-2%</span> -->
                   </h5>
                 </div>
@@ -126,7 +126,7 @@
                 <div>
                   <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Usuarios</p>
                   <h5 class="mb-0 font-bold">
-                    1
+                    {{ total_user }}
                     <!-- <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+5%</span> -->
                   </h5>
                 </div>

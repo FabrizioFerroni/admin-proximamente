@@ -1,3 +1,4 @@
+import { TestrefreshComponent } from './components/testrefresh/testrefresh.component';
 import { AdminGuard } from './guards/admin.guard';
 import { LoginComponent } from './components/login/login.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -12,7 +13,9 @@ const routes: Routes = [
   {path:'suscriptores', component: SuscriptoresComponent, canActivate:[AdminGuard]},
   {path:'baja-suscriptores', component: BajaSuscriptoresComponent, canActivate:[AdminGuard]},
   {path:'usuarios', component: UsuariosComponent, canActivate:[AdminGuard]},
+  {path:'usuarios', component: UsuariosComponent, canActivate:[AdminGuard]},
   {path:'iniciarsesion', component: LoginComponent},
+  {path: 'refresh', component: TestrefreshComponent, canActivate:[AdminGuard]},
   {path:'', redirectTo:'tablero', pathMatch: 'full'},
 ];
 

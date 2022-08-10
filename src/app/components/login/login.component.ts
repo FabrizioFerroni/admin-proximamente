@@ -1,3 +1,4 @@
+import { AuthIInterceptor } from './../../interceptor/auth-i.interceptor';
 import { TokenService } from './../../service/token.service';
 import { AuthService } from './../../service/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -57,7 +58,9 @@ export class LoginComponent implements OnInit {
           console.log(res);
           this.email = '';
           this.password = '';
-          this.tokenService.setToken(res.authorization.token);
+
+
+          this.tokenService.setToken(res.authorization.token.original.token);
           iziToast.success({
             title: 'ÉXITO',
             message: res.mensaje,

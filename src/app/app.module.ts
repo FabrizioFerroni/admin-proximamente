@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
@@ -11,6 +12,10 @@ import { SuscriptoresComponent } from './components/suscriptores/suscriptores.co
 import { BajaSuscriptoresComponent } from './components/baja-suscriptores/baja-suscriptores.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { FormsModule } from '@angular/forms';
+import { AuthInterceptor, authInterceptorProviders } from './interceptor/auth2.interceptor';
+import { TestrefreshComponent } from './components/testrefresh/testrefresh.component';
+import { interceptorProvider } from './interceptor/auth.interceptor';
+import { intAuth } from './interceptor/auth-i.interceptor';
 
 
 @NgModule({
@@ -22,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     SuscriptoresComponent,
     BajaSuscriptoresComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    TestrefreshComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,12 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  // providers: [authInterceptorProviders],
+  // providers: [interceptorProvider],
+  // providers: [],
+  providers: [intAuth],
+  // providers: [interceptorProvider],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,40 @@
+.pl-85 {
+  margin-left: 73%;
+  background-color:  #1D6F42;
+  /* padding: 5px 5px 5px 20px; */
+  padding: 5px 10px 5px 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.pl-85 i{
+  padding-right: 5px;
+}
+
+.display-none{
+  display: none;
+}
+
+.z-1000{
+  z-index: 1000;
+}
+
+.w-50{
+  width: 20%;
+  top: 13rem;
+  border-radius: 1rem;
+  padding: 20px;
+}
+
+.bg-gray-650{
+  --tw-bg-opacity: 0.85;
+  background-color: rgb(108 117 125 / var(--tw-bg-opacity));
+}
+
+.py-22{
+  padding-top: 0.5rem;
+}
+
+.py-33{
+  padding-top: 0.75rem;
+}
