@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { SuscriptoresService } from 'src/app/service/suscriptores.service';
 import { TokenService } from './../../service/token.service';
 import { AuthService } from './../../service/auth.service';
@@ -21,8 +22,11 @@ export class UsuariosComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private susService: SuscriptoresService,
-    private router: Router) {
+    private router: Router,
+    private titleService: Title
+    ) {
     this.token = tokenService.getToken();
+    titleService.setTitle('Usuarios - Admin Proximamente')
   }
 
   ngOnInit(): void {
@@ -33,6 +37,8 @@ export class UsuariosComponent implements OnInit {
     this.susService.get_users(this.token).subscribe(
       res=> {
         this.usuarios = res.usuarios;
+        console.log(res);
+
       },
       err =>{
         console.log(err);

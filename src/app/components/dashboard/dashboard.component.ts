@@ -30,12 +30,20 @@ export class DashboardComponent implements OnInit {
     private tokenService:TokenService,
     private authService:AuthService,
     private susService: SuscriptoresService,
-    private router: Router
+    private router: Router,
+
   ) {
     this.token = tokenService.getToken();
+    titleService.setTitle('Tablero - Admin Proximamente')
   }
 
   ngOnInit(): void {
+
+    // let body = this._document.body;
+    // let script = this._renderer2.createElement('script');
+    // script.type = 'application/javascript';
+    // script.src = 'assets/js/page/index-0.js';
+    // this._renderer2.appendChild(body, script);
     this.get_total_sus();
     this.get_total_baja_sus();
     this.get_total_user();
@@ -73,20 +81,6 @@ export class DashboardComponent implements OnInit {
       err => {
         console.log(err);
 
-      }
-    )
-  }
-
-
-  cerrarsesion(): void{
-    this.authService.cerrarsesion(this.token).subscribe(
-      res => {
-        console.log(res);
-        this.router.navigate(['/iniciarsesion']);
-      },
-      err => {
-        console.log(err);
-        this.router.navigate(['/iniciarsesion']);
       }
     )
   }

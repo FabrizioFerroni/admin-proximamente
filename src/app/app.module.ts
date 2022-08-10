@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { VerticalComponent } from './components/nav/vertical/vertical.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { SuscriptoresComponent } from './components/suscriptores/suscriptores.component';
 import { BajaSuscriptoresComponent } from './components/baja-suscriptores/baja-suscriptores.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -15,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { AuthInterceptor, authInterceptorProviders } from './interceptor/auth2.interceptor';
 import { interceptorProvider } from './interceptor/auth.interceptor';
 import { intAuth } from './interceptor/auth-i.interceptor';
+import { NavComponent } from './components/layouts/nav/nav.component';
+import { SidebarComponent } from './components/layouts/sidebar/sidebar.component';
+import { FooterComponent } from './components/layouts/footer/footer.component';
 
 
 @NgModule({
@@ -22,11 +23,12 @@ import { intAuth } from './interceptor/auth-i.interceptor';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    VerticalComponent,
     FooterComponent,
     SuscriptoresComponent,
     BajaSuscriptoresComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    NavComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

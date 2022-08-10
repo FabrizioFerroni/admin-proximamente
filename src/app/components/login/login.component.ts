@@ -78,6 +78,12 @@ export class LoginComponent implements OnInit {
       )
 
 
+    }else{
+      iziToast.warning({
+        title: 'ADVERTENCIA',
+        message: "Debes llenar todo el formulario",
+        position: 'topRight',
+      });
     }
   }
 }

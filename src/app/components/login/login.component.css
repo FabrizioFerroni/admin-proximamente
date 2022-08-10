@@ -1,13 +1,40 @@
-body{
+body {
   overflow: hidden !important;
 }
 
 
-.mb-4-5{
+.mb-4-5 {
   margin-bottom: 4.5rem;
 }
 
 
-button :disabled{
+button :disabled {
   background-color: red;
+}
+
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #6777ef;
+  border-color: #6777ef;
+  cursor: not-allowed;
+}
+
+.p-55{
+  padding: 3.38rem !important;
+}
+
+
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus {
+  border: 1px solid inherit;
+  -webkit-text-fill-color:#000;
+  /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
+  transition: background-color 5000s ease-in-out 0s;
 }

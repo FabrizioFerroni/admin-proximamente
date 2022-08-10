@@ -7,6 +7,23 @@
   color: white;
 }
 
+.outline-none{
+  outline: none !important;
+
+}
+
+.card-header{
+  background-color: #F4F6F9;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.modal-body{
+  padding-bottom: 15px !important;
+}
+
 .pl-85 i{
   padding-right: 5px;
 }

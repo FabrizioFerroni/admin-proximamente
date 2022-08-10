@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { TokenService } from './../../service/token.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -21,9 +22,11 @@ export class BajaSuscriptoresComponent implements OnInit {
     private tokenService:TokenService,
     private authService:AuthService,
     private susService: SuscriptoresService,
-    private router: Router
+    private router: Router,
+    private titleService: Title
   ) {
     this.token = tokenService.getToken();
+    titleService.setTitle('Baja Suscriptores - Admin Proximamente')
    }
 
   ngOnInit(): void {

@@ -1,0 +1,33 @@
+<div class="main-sidebar">
+  <aside id="sidebar-wrapper">
+    <div class="sidebar-brand">
+      <a [routerLink]="['/tablero']" >
+        <img src="../assets/img/faviconff.png" class="w-30-p" alt="main_logo" />
+      <span class="ml-1 fs-10-p">Fabrizio Dev Proximamente</span>
+      </a>
+    </div>
+    <div class="sidebar-brand sidebar-brand-sm">
+      <a [routerLink]="['/tablero']" >
+        <img src="../assets/img/faviconff.png" class="w-30-p" alt="main_logo" />
+      <span class="ml-1 fs-10-p">FF</span>
+
+      </a>
+    </div>
+    <ul class="sidebar-menu">
+        <li class="menu-header">Tablero</li>
+        <li class="nav-item " routerLinkActive="active" title="tablero" >
+          <a [routerLink]="['/tablero']"   class="nav-link "><i class="fas fa-fire"></i><span>Tablero</span></a>
+        </li>
+        <li class="menu-header">Suscripciones</li>
+        <li class="nav-item " routerLinkActive="active">
+          <a [routerLink]="['/suscriptores']"  class="nav-link" ><i class="fas fa-user-check"></i> <span>Suscriptores</span></a>
+        </li>
+        <li class="nav-item " routerLinkActive="active"><a class="nav-link" [routerLink]="['/baja-suscriptores']" routerLinkActive="active"><i class="fas fa-user-times"></i> <span>Baja Suscriptores</span></a></li>
+
+        <li class="menu-header">Usuarios</li>
+        <li class="nav-item" routerLinkActive="active">
+          <a [routerLink]="['/usuarios']" class="nav-link"><i class="fas fa-users"></i> <span>Usuarios</span></a>
+        </li>
+      </ul>
+  </aside>
+</div>

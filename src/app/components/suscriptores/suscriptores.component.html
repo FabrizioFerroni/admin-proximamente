@@ -1,207 +1,118 @@
-<div id="defaultModal" tabindex="-1" aria-hidden="true"  class="fixed hidden inset-0 bg-gray-650 bg-opacity-50 overflow-y-auto h-full w-full z-1000" id="my-modal">
-  <!--modal content-->
-  <div class="relative top-20 mx-auto p-5 border w-50 shadow-lg rounded-md bg-white">
-    <div class="mt-3 text-center">
-      <form>
-        <h5 class="text-lg leading-6 font-medium text-gray-900">Cambiar estado</h5>
-        <div class="mt-2 px-7 py-3">
-          <!-- <p class="text-sm text-gray-500">
-          Account has been successfully registered!
-        </p> -->
-          <select name="options" id="" class="
-        mt-1
-        rounded-md
-        border-gray-300
-        shadow-sm
-        focus:outline-none
-        focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
-      ">
-            <option value="" selected disabled>Seleccione una opción</option>
-            <option value="1">No se envio mail</option>
-            <option value="2">Mail enviado</option>
-          </select>
-        </div>
-        <div class="items-center px-4 py-33">
-          <button id="ok-btn"
-            class="px-4 py-2 bg-gradient-red text-white text-base align-middle font-medium rounded w-full shadow-sm hover:bg-gradient-orange focus:outline-none focus:ring-2 focus:ring-green-300">
-            OK
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- sidenav  -->
-<app-vertical></app-vertical>
-
-<!-- end sidenav -->
-
-<main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
-  <!-- Navbar -->
-  <nav
-    class="relative sticky top-0 z-50 bg-white flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start"
-    navbar-main navbar-scroll="false">
-    <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
-      <nav>
-        <!-- breadcrumb -->
-        <ol class="flex flex-wrap pt-1 mr-12  rounded-lg sm:mr-16">
-          <!--bg-transparent-->
-          <li class="leading-normal text-size-sm">
-            <a class="opacity-50 text-slate-700" [routerLink]="['/tablero']"><i
-                class="opacity-50 text-slate-700 cursor-pointer fas fa-home"></i></a>
-          </li>
-          <li
-            class="text-size-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
-            aria-current="page">Suscriptores</li>
-        </ol>
-        <h6 class="mb-0 font-bold capitalize">Suscriptores</h6>
-      </nav>
-
-      <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
-        <div class="flex items-center md:ml-auto md:pr-4">
-        </div>
-        <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-          <li class="flex items-center">
-            <a (click)="cerrarsesion()"
-              class="block px-0 py-2 cursor-pointer font-semibold transition-all ease-nav-brand text-size-sm text-slate-500">
-              <!-- <i class="fa fa-user sm:mr-1"></i> -->
-              <i class="fas fa-sign-out-alt sm:mr-1"></i>
-              <span class="hidden sm:inline">Cerrar Sesion</span>
-            </a>
-          </li>
-        </ul>
+<!-- nav  -->
+<app-nav></app-nav>
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>Suscriptores</h1>
+      <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a [routerLink]="['/tablero']">Tablero</a></div>
+        <div class="breadcrumb-item">Suscriptores</div>
       </div>
     </div>
-  </nav>
-  <!-- end Navbar -->
 
-  <!-- cards -->
-  <div class="w-full px-6 py-6 mx-auto">
+    <div class="section-body">
+      <h2 class="section-title">Suscriptores</h2>
+      <p class="section-lead">
+        Listar los suscriptores de la aplicación.
+      </p>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4></h4>
+              <div class="card-header-form">
+                <form>
+                  <div class="input-group">
+                    <!-- <input type="text" class="form-control" placeholder="Search">
+                      <div class="input-group-btn"> -->
+                    <button class="btn btn-primary" (click)="exporttoexcel()"><i class="fas fa-file-excel"></i> Exportar a excel</button>
+                    <!-- </div> -->
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table id="suscriptores-table" class="table table-hover table-striped text-center">
+                  <thead>
+                    <tr class="text-uppercase">
+                      <th class="d-none">
+                        Id
+                      </th>
+                      <th>Nombre</th>
+                      <th>Email</th>
+                      <th>Estado</th>
+                      <th>Fecha de suscripción</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of suscriptores">
+                      <td class="p-0 text-center d-none">
+                        {{item.id}}
+                      </td>
+                      <td>
+                        {{ item.nombre }}
+                      </td>
+                      <td class="align-middle">
+                        {{item.email}}
+                      </td>
+                      <td>
+                        <div class="badge badge-info" *ngIf="item.estado === 3">Nuevo suscriptor</div>
+                        <div class="badge badge-success" *ngIf="item.estado === 2">Mail enviado</div>
+                        <div class="badge badge-warning" *ngIf="item.estado === 1">Mail no enviado</div>
+                        <div class="badge badge-danger" *ngIf="item.estado === 0">Se dio de baja</div>
+                      </td>
+                      <td>{{ item.fecha_subcripcion | date:'dd/MM/yy' }}</td>
+                      <td class="text-center">
+                        <a (click)="change_state(item.id)" class="text-info text-decoration-none cursor-pointer" data-toggle="modal" [attr.data-target]="'#editstatus-' + item.id" *ngIf="item.estado !== 2"><i class="fas fa-pen"></i> Editar</a>
+                        <span  class=" cursor-default text-success" *ngIf="item.estado === 2"><i class="fas fa-check"></i> Listo</span>
+                      </td>
 
-    <!-- table -->
 
 
-    <div class="flex flex-wrap -mx-3">
-      <div class="flex-none w-full max-w-full px-3">
-        <div
-          class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-          <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-            <h6>
-              Suscriptores
-              <button (click)="exporttoexcel()" class="pl-85"><i class="far fa-file-excel"></i> Exportar a
-                Excel</button>
-            </h6>
-          </div>
-          <div>
-          </div>
-          <div class="flex-auto px-0 pt-0 pb-2">
-            <div class="p-0 overflow-x-auto">
-              <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500" id="suscriptores-table">
-                <thead class="align-bottom">
-                  <tr>
-                    <th
-                      class="display-none px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                      Id</th>
-                    <th
-                      class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                      Nombre</th>
-                    <th
-                      class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                      Email</th>
-                    <th
-                      class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                      Estado</th>
-                    <th
-                      class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-size-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                      Fecha de suscripcion</th>
-                    <th
-                      class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-gray-200 border-solid shadow-none tracking-none whitespace-nowrap text-slate-400 opacity-70">
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of suscriptores">
+                    </tr>
+                  </tbody>
+                </table>
 
-                    <td
-                      class="display-none p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                      <div class="flex px-2 pl-4 py-1">
-                        <div class="flex flex-col justify-center">
-                          <p class="mb-0 font-semibold leading-tight text-size-xs">{{ item.id }}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                      <div class="flex px-2 py-1">
-                        <div>
-                          <!-- <img src="../assets/img/team-2.jpg" class="inline-flex items-center justify-center mr-4 text-white transition-all duration-200 ease-soft-in-out text-size-sm h-9 w-9 rounded-xl" alt="user1" /> -->
-                          <img src="../assets/img/perfil.png"
-                            class="bg-fuchsia inline-flex items-center justify-center mr-4 text-white transition-all duration-200 ease-soft-in-out text-size-sm h-9 w-9 rounded-xl"
-                            alt="user1" />
-                        </div>
-                        <div class="flex flex-col justify-center">
-                          <h6 class="mb-0 leading-normal text-size-sm">{{ item.nombre }}</h6>
-                          <!-- <p class="mb-0 leading-tight text-size-xs text-slate-400">{{ item.email }}</p> -->
-                        </div>
-                      </div>
-                    </td>
-                    <td
-                      class="p-2 leading-normal text-center align-middle bg-transparent border-b text-size-sm whitespace-nowrap shadow-transparent">
-                      <p class="mb-0 leading-tight text-size-xs text-slate-400">{{ item.email }}</p>
-                    </td>
-                    <td
-                      class="p-2 leading-normal text-center align-middle bg-transparent border-b text-size-sm whitespace-nowrap shadow-transparent">
-                      <div *ngIf="item.estado == 0">
-                        <span
-                          class="bg-gradient-red px-3.6-em text-size-xs-em rounded-1.8 py-2.2-em inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Se
-                          dio de baja</span>
-                      </div>
-                      <div *ngIf="item.estado == 1">
-                        <span
-                          class="bg-gradient-orange px-3.6-em text-size-xs-em rounded-1.8 py-2.2-em inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">No
-                          se envio mail</span>
-                      </div>
-                      <div *ngIf="item.estado == 2">
-                        <span
-                          class="bg-gradient-fuchsia px-3.6-em text-size-xs-em rounded-1.8 py-2.2-em inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Mail
-                          enviado</span>
-                      </div>
-
-                      <div *ngIf="item.estado == 3">
-                        <a (click)="change_state(item.estado)" class="cursor-pointer"><span
-                            class="bg-gradient-lime px-3.6-em text-size-xs-em rounded-1.8 py-2.2-em inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Nuevo
-                            suscriptor</span></a>
-                      </div>
-                    </td>
-                    <td
-                      class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                      <span class="font-semibold leading-tight text-size-xs text-slate-400">{{ item.fecha_subcripcion |
-                        date:'dd/MM/yy' }}</span>
-                    </td>
-                    <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                      <div *ngIf="item.estado != 2">
-                        <button type="button" data-modal-toggle="defaultModal"
-                          class="font-semibold leading-tight text-size-xs text-slate-400"><i class="fas fa-pen"></i>
-                          Editar </button>
-                      </div>
-                      <div *ngIf="item.estado === 2">
-                        <span class="font-semibold leading-tight text-size-xs text-slate-400"> <i
-                            class="fas fa-check"></i> Listo </span>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
-    <!-- fin table -->
-
-    <app-footer></app-footer>
+  </section>
+<div *ngFor="let item of suscriptores">
+  <div class="modal fade" id="editstatus-{{ item.id }}" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Cambiar estado</h5>
+          <button type="button" class="close outline-none" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <form  #editst="ngForm" (ngSubmit)="edit_status(editst)">
+        <div class="modal-body">
+          <select name="status" [(ngModel)]="status" id="" class="form-control outline-none">
+              <option value="" selected disabled>Seleccione una opción</option>
+              <option value="1">No se envio mail</option>
+              <option value="2">Mail enviado</option>
+              <option value="3" disabled readonly>Nuevo suscriptor</option>
+            </select>
+            <div>
+            </div>
+          </div>
+          <div class="modal-footer">
+          <button type="submit" class="w-100 btn btn-primary outline-none" [disabled]="!editst.valid">Cambiar</button>
+        </div>
+      </form>
+      </div>
+    </div>
   </div>
-  <!-- end cards -->
-</main>
+</div>
+
+
+</div>
+<app-footer></app-footer>

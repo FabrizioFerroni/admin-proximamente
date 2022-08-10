@@ -1,17 +1,153 @@
+<app-nav></app-nav>
+  <!-- Main Content -->
+  <div class="main-content">
+    <section class="section">
+      <div class="section-header">
+        <h1>Tablero</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="card card-statistic-1">
+            <div class="card-icon bg-success">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="card-wrap">
+              <div class="card-header">
+                <h4>Suscriptores</h4>
+              </div>
+              <div class="card-body">
+                {{ total_sus }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="card card-statistic-1">
+            <div class="card-icon bg-danger">
+              <i class="fas fa-times"></i>
+            </div>
+            <div class="card-wrap">
+              <div class="card-header">
+                <h4>Nuevas bajas</h4>
+              </div>
+              <div class="card-body">
+                {{ total_baja }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="card card-statistic-1">
+            <div class="card-icon bg-warning">
+              <i class="fas fa-smile"></i>
+            </div>
+            <div class="card-wrap">
+              <div class="card-header">
+                <h4>Total</h4>
+              </div>
+              <div class="card-body">
+                {{ total_sus - total_baja }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="card card-statistic-1">
+            <div class="card-icon bg-primary">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="card-wrap">
+              <div class="card-header">
+                <h4>Usuarios</h4>
+              </div>
+              <div class="card-body">
+                {{ total_user }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <h4>Estadisticas</h4>
+              <div class="card-header-action">
+                <div class="btn-group">
+                  <a href="#" class="btn btn-primary">Week</a>
+                  <a href="#" class="btn">Month</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <canvas id="myChart" height="182"></canvas>
+              <div class="statistic-details mt-sm-4">
+                <div class="statistic-details-item">
+                  <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 7%</span>
+                  <div class="detail-value">$243</div>
+                  <div class="detail-name">Today's Sales</div>
+                </div>
+                <div class="statistic-details-item">
+                  <span class="text-muted"><span class="text-danger"><i class="fas fa-caret-down"></i></span> 23%</span>
+                  <div class="detail-value">$2,902</div>
+                  <div class="detail-name">This Week's Sales</div>
+                </div>
+                <div class="statistic-details-item">
+                  <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>9%</span>
+                  <div class="detail-value">$12,821</div>
+                  <div class="detail-name">This Month's Sales</div>
+                </div>
+                <div class="statistic-details-item">
+                  <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 19%</span>
+                  <div class="detail-value">$92,142</div>
+                  <div class="detail-name">This Year's Sales</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </section>
+  </div>
+<app-footer></app-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- sidenav  -->
-<app-vertical></app-vertical>
+<!-- <app-vertical></app-vertical> -->
 
 <!-- end sidenav -->
 
-<main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
-  <!-- Navbar -->
+<!-- <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
+  <!-- Navbar --
   <nav
     class="relative sticky top-0 z-50 bg-white flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start"
     navbar-main navbar-scroll="false">
     <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
       <nav>
-        <!-- breadcrumb -->
-        <ol class="flex flex-wrap pt-1 mr-12  rounded-lg sm:mr-16"> <!--bg-transparent-->
+        <!-- breadcrumb --
+        <ol class="flex flex-wrap pt-1 mr-12  rounded-lg sm:mr-16"> <!--bg-transparent--
           <li class="leading-normal text-size-sm">
             <a class="opacity-50 text-slate-700" [routerLink]="['/tablero']"><i
               class="opacity-50 text-slate-700 cursor-pointer fas fa-home"></i></a>
@@ -30,7 +166,7 @@
           <li class="flex items-center">
             <a (click)="cerrarsesion()"
               class="block px-0 py-2 cursor-pointer font-semibold transition-all ease-nav-brand text-size-sm text-slate-500">
-              <!-- <i class="fa fa-user sm:mr-1"></i> -->
+              <!-- <i class="fa fa-user sm:mr-1"></i> --
               <i class="fas fa-sign-out-alt sm:mr-1"></i>
               <span class="hidden sm:inline">Cerrar Sesion</span>
             </a>
@@ -39,13 +175,13 @@
       </div>
     </div>
   </nav>
-  <!-- end Navbar -->
+  <!-- end Navbar --
 
-  <!-- cards -->
+  <!-- cards --
   <div class="w-full px-6 py-6 mx-auto">
-    <!-- row 1 -->
+    <!-- row 1 --
     <div class="flex flex-wrap -mx-3">
-      <!-- card1 -->
+      <!-- card1 --
       <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
           <div class="flex-auto p-4">
@@ -55,7 +191,7 @@
                   <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Suscriptores</p>
                   <h5 class="mb-0 font-bold">
                     {{ total_sus }}
-                    <!-- <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+50%</span> -->
+                    <!-- <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+50%</span> --
                   </h5>
                 </div>
               </div>
@@ -69,7 +205,7 @@
         </div>
       </div>
 
-      <!-- card2 -->
+      <!-- card2 --
       <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
           <div class="flex-auto p-4">
@@ -79,7 +215,7 @@
                   <p class="mb-0 font-sans font-semibold capitalize leading-normal text-size-sm">Nuevas bajas </p>
                   <h5 class="mb-0 font-bold">
                     {{ total_baja }}
-                    <!-- <span class="leading-normal text-size-sm font-weight-bolder text-red-600">-25%</span> -->
+                    <!-- <span class="leading-normal text-size-sm font-weight-bolder text-red-600">-25%</span> --
                   </h5>
                 </div>
               </div>
@@ -93,7 +229,7 @@
         </div>
       </div>
 
-      <!-- card3 -->
+      <!-- card3 --
       <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
           <div class="flex-auto p-4">
@@ -103,7 +239,7 @@
                   <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Total Suscriptores</p>
                   <h5 class="mb-0 font-bold">
                    {{total_sus - total_baja}}
-                    <!-- <span class="leading-normal text-red-600 text-size-sm font-weight-bolder">-2%</span> -->
+                    <!-- <span class="leading-normal text-red-600 text-size-sm font-weight-bolder">-2%</span> --
                   </h5>
                 </div>
               </div>
@@ -117,7 +253,7 @@
         </div>
       </div>
 
-      <!-- card4 -->
+      <!-- card4 --
       <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
           <div class="flex-auto p-4">
@@ -127,7 +263,7 @@
                   <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Usuarios</p>
                   <h5 class="mb-0 font-bold">
                     {{ total_user }}
-                    <!-- <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+5%</span> -->
+                    <!-- <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+5%</span> --
                   </h5>
                 </div>
               </div>
@@ -145,5 +281,5 @@
 
     <app-footer></app-footer>
   </div>
-  <!-- end cards -->
-</main>
+  <!-- end cards --
+</main> -->

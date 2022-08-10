@@ -39,6 +39,16 @@ export class SuscriptoresService {
     return this._http.get(this.url + 'suscriptores', { headers: headers });
   }
 
+  get_suscriber_per_id(id: number, token: string): Observable<any>{
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token );
+    return this._http.get(this.url + 'suscriptor/' + id, { headers: headers });
+  }
+
+  put_suscriber_per_id(id: number, data: any, token: string): Observable<any>{
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token );
+    return this._http.put(this.url + 'suscriptor/' + id + '/editar', data, { headers: headers });
+  }
+
   get_baja_suscriber(token: string): Observable<any>{
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token );
     return this._http.get(this.url + 'baja-suscriptores', { headers: headers });
@@ -47,5 +57,10 @@ export class SuscriptoresService {
   get_users(token: string): Observable<any>{
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token );
     return this._http.get(this.url + 'usuarios', { headers: headers });
+  }
+
+  get_user(token: string): Observable<any>{
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token );
+    return this._http.get(this.url + 'user', { headers: headers });
   }
 }
