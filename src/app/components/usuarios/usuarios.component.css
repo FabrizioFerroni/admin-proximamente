@@ -17,3 +17,29 @@ cursor: pointer;
   color: #fff !important;
 cursor: pointer;
 }
+
+.w85{
+  width: 85% !important;
+}
+
+.myselect{
+margin-top: 2px;
+border-radius: 5px;
+width: 50px;
+height: 25px;
+background-color: #fdfdff;
+border-color: #e4e6fc;
+cursor: pointer;
+}
+
+.myselect:hover, .myselect:focus{
+  border-color: #6777ef !important;
+}
+
+.card-header {
+  background-color: #F4F6F9;
+}
+
+.card{
+  box-shadow: 0 0 0 0 transparent !important;
+}

@@ -46,6 +46,8 @@ export class SuscriptoresComponent implements OnInit {
 
   ngOnInit(): void {
     this.get_suscribers();
+    console.log(this.pageSize);
+
   }
 
 

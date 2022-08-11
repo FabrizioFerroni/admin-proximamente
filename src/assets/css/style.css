@@ -66,7 +66,7 @@
 /*SCROLL SOLO PARA CHROME*/
 
 ::-webkit-scrollbar {
-  /* background: #fff;*/
+  background: #F4F6F9;
   width: 7px;
 }
 
@@ -77,12 +77,12 @@
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: var(--secondary); /* 797676*/
+  background: #394eea; /* 797676*/
   /* background: #d10014; 797676 */
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--body);
+  background: #F4F6F9;
   /* background: #fff; */
 }
 

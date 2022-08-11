@@ -7,7 +7,27 @@
   color: white;
 }
 
+.w85{
+  width: 85% !important;
+}
 
+.myselect{
+margin-top: 2px;
+border-radius: 5px;
+width: 50px;
+height: 25px;
+background-color: #fdfdff;
+border-color: #e4e6fc;
+cursor: pointer;
+}
+
+.myselect:hover, .myselect:focus{
+  border-color: #6777ef !important;
+}
+
+.card .card-header h4 + .card-header-action .btn, .card .card-header h4 + .card-header-form .btn, .card .card-header .btn:not(.note-btn){
+  border-radius: 5px !important;
+}
 
 /* .table-responsive{
   background-color: #F4F6F9 !important;
