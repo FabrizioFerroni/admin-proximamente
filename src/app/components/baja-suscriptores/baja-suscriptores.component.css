@@ -1,0 +1,28 @@
+.active_item {
+  background-color: #6777ef !important;
+  border-color: #6777ef !important;
+  z-index: 1;
+  color: #fff !important;
+cursor: pointer;
+
+}
+
+.item{
+  color: #6777ef !important;
+cursor: pointer;
+
+}
+
+.item:hover{
+  color: #fff !important;
+cursor: pointer;
+}
+
+
+ /* .responsive{
+  background-color: #F4F6F9 !important;
+}
+
+.card{
+  box-shadow: 0 0 0 0 transparent !important;
+} */

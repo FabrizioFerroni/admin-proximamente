@@ -2,6 +2,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { NgxPaginationModule } from 'ngx-pagination';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -35,6 +37,7 @@ import { FooterComponent } from './components/layouts/footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxPaginationModule,
   ],
   // providers: [authInterceptorProviders],
   // providers: [interceptorProvider],

@@ -21,7 +21,7 @@
           <div class="card">
 
             <div class="card-body p-0">
-              <div class="table-responsive">
+              <div class="responsive">
                 <table class="table table-hover table-striped text-center">
                   <thead>
                     <tr class="text-uppercase">
@@ -34,25 +34,75 @@
                       <th>Fecha baja de suscripción</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr *ngFor="let item of baja_suscriptores">
-                      <td class="p-0 text-center d-none">
-                        {{item.id}}
-                      </td>
-                      <td>
-                        {{ item.nombre }}
-                      </td>
-                      <td class="align-middle">
-                        {{item.email}}
-                      </td>
-                      <td>
-                        <div class="badge badge-danger" *ngIf="item.eliminado === 1">Dado de baja</div>
-                      </td>
-                      <td>{{ item.fecha_baja | date:'dd/MM/yy' }}</td>
+                  <ng-container *ngIf="baja_suscriptores.length==0 && !load_data">
+                    <tbody>
+                      <tr>
+                        <td colspan="5" class="text-center">
+                          <span class="text-muted">No hay registro de suscriptores</span>
+                        </td>
+                      </tr>
+                    </tbody>
 
+                  </ng-container>
+                  <tbody *ngIf="load_data">
+                    <tr>
+                      <td class="text-center" colspan="5">
+                        <div class="spinner-border mt-20" style="width: 3rem; height: 3rem;" role="status">
+                        </div>
+                        <span class="d-block mtb-20">Cargando...</span>
+                      </td>
                     </tr>
                   </tbody>
+                  <ng-container *ngIf="!load_data">
+                    <tbody>
+                      <tr *ngFor="let item of baja_suscriptores | paginate: { itemsPerPage: pageSize, currentPage: page }">
+                        <td class="p-0 text-center d-none">
+                          {{item.id}}
+                        </td>
+                        <td>
+                          {{ item.nombre }}
+                        </td>
+                        <td class="align-middle">
+                          {{item.email}}
+                        </td>
+                        <td>
+                          <div class="badge badge-danger" *ngIf="item.eliminado === 1">Dado de baja</div>
+                        </td>
+                        <td>{{ item.fecha_baja | date:'dd/MM/yy' }}</td>
+
+                      </tr>
+                    </tbody>
+                  </ng-container>
                 </table>
+
+                <ng-container *ngIf="baja_suscriptores.length > 1">
+                  <pagination-template class="d-flex justify-content-center" #p="paginationApi" (pageChange)="page = $event">
+                    <ul class="pagination ml-2 text-center">
+                      <li class="page-item" [class.disabled]="p.isFirstPage()">
+                        <a class="page-link item" *ngIf="!p.isFirstPage()"  (click)="p.previous()" tabindex="-1">Anterior</a>
+                      </li>
+
+                      <div *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
+                        <li class="page-item">
+                          <a class="page-link item" (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                            <span class="" >{{ page.label }}</span>
+                          </a>
+                        </li>
+                        <div *ngIf="p.getCurrent() === page.value">
+                          <li class="page-item">
+                            <a class="page-link active_item" >
+                              <span class="" title="{{ page.label }}" >{{ page.label }}</span>
+                            </a>
+                          </li>
+                        </div>
+                      </div>
+                      <li class="page-item" [class.disabled]="p.isLastPage()">
+                        <a class="page-link item" *ngIf="!p.isLastPage()" (click)="p.next()">Siguiente</a>
+                      </li>
+                    </ul>
+
+                  </pagination-template>
+                </ng-container>
 
               </div>
             </div>

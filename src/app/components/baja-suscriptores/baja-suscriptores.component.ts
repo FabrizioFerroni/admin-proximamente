@@ -18,6 +18,10 @@ export class BajaSuscriptoresComponent implements OnInit {
 
   token!: string;
   baja_suscriptores: Array<any> =[];
+  load_data: boolean = true;
+  page: number = 1;
+  pageSize: number = 20;
+
   constructor(
     private tokenService:TokenService,
     private authService:AuthService,
@@ -38,6 +42,7 @@ export class BajaSuscriptoresComponent implements OnInit {
     this.susService.get_baja_suscriber(this.token).subscribe(
       res => {
         this.baja_suscriptores = res.data;
+        this.load_data = false;
       },
       err => {
         console.log(err);

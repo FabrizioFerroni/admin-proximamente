@@ -1,9 +1,9 @@
+import { Title } from '@angular/platform-browser';
 import { AuthIInterceptor } from './../../interceptor/auth-i.interceptor';
 import { TokenService } from './../../service/token.service';
 import { AuthService } from './../../service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 
 declare var jQuery: any;
 declare var $: any;
@@ -23,9 +23,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private titleService: Title
   ) {
     this.token = tokenService.getToken();
+    titleService.setTitle('Iniciar Sesión - Admin Proximamente')
    }
 
   ngOnInit(): void {

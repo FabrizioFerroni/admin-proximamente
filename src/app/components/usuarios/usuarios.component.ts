@@ -17,6 +17,9 @@ export class UsuariosComponent implements OnInit {
 
   token!: string;
   usuarios: Array<any> = [];
+  load_data: boolean = true;
+  page: number = 1;
+  pageSize: number = 20;
 
   constructor(
     private tokenService: TokenService,
@@ -37,7 +40,7 @@ export class UsuariosComponent implements OnInit {
     this.susService.get_users(this.token).subscribe(
       res=> {
         this.usuarios = res.usuarios;
-        console.log(res);
+        this.load_data = false;
 
       },
       err =>{

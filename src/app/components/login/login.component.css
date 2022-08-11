@@ -19,7 +19,7 @@ button :disabled {
   cursor: not-allowed;
 }
 
-.p-55{
+.p-55 {
   padding: 3.38rem !important;
 }
 
@@ -34,7 +34,14 @@ button :disabled {
 .form-control:-webkit-autofill:hover,
 .form-control:-webkit-autofill:focus {
   border: 1px solid inherit;
-  -webkit-text-fill-color:#000;
+  -webkit-text-fill-color: #000;
   /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
   transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (min-width: 1920px) {
+ .mb-28{
+  margin-bottom: 11.95rem !important;
+  padding-top: 15rem !important;
+ }
 }

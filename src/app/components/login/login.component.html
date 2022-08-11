@@ -2,48 +2,49 @@
 <section class="section">
   <div class="d-flex flex-wrap align-items-stretch">
     <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
-      <div class="p-55 m-3">
-        <!-- <img src="../../../assets/img/stisla-fill.svg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2"> -->
-        <h4 class="text-dark font-weight-normal">Bienvenido a <span class="font-weight-bold text-primary">Proximamente</span></h4>
-        <p class="text-muted">Antes de comenzar, debe iniciar sesión.</p>
-        <form  method="post" autocomplete="nope" #login="ngForm" (ngSubmit)="onLogin(login)">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" type="email" class="form-control" placeholder="Ingrese su email"  name="email" [(ngModel)]="email" tabindex="1" required autofocus>
-            <div class="invalid-feedback">
-              Por favor complete su correo electrónico
+        <div class="p-55 mb-28 m-3">
+          <!-- <img src="../../../assets/img/stisla-fill.svg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2"> -->
+          <h4 class="text-dark font-weight-normal">Bienvenido a <span class="font-weight-bold text-primary">Proximamente</span></h4>
+          <p class="text-muted">Antes de comenzar, debe iniciar sesión.</p>
+          <form  method="post" autocomplete="nope" #login="ngForm" (ngSubmit)="onLogin(login)">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" class="form-control" placeholder="Ingrese su email"  name="email" [(ngModel)]="email" tabindex="1" required autofocus>
+              <div class="invalid-feedback">
+                Por favor complete su correo electrónico
+              </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <div class="d-block">
-              <label for="password" class="control-label">Contraseña</label>
+            <div class="form-group">
+              <div class="d-block">
+                <label for="password" class="control-label">Contraseña</label>
+              </div>
+              <input id="password" type="password" placeholder="Ingrese su contraseña" class="form-control" name="password" [(ngModel)]="password" tabindex="2" required>
+              <div class="invalid-feedback">
+                Por favor complete su contraseña
+              </div>
             </div>
-            <input id="password" type="password" placeholder="Ingrese su contraseña" class="form-control" name="password" [(ngModel)]="password" tabindex="2" required>
-            <div class="invalid-feedback">
-              Por favor complete su contraseña
+
+            <div class="form-group">
+              <div class="outnone custom-control custom-checkbox">
+                <input id="rememberMe" class="outline-none custom-control-input" type="checkbox" (click)="cambiarTipo()" />
+                <label class="custom-control-label" for="rememberMe">Mostrar contraseña</label>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <div class="outnone custom-control custom-checkbox">
-              <input id="rememberMe" class="outline-none custom-control-input" type="checkbox" (click)="cambiarTipo()" />
-              <label class="custom-control-label" for="rememberMe">Mostrar contraseña</label>
+            <div class="form-group text-right">
+              <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4" [disabled]="!login.valid">
+                Iniciar Sesión
+              </button>
             </div>
+          </form>
+
+          <div class="text-center mt-5 text-small">
+            Derechos de autor &copy; Fabrizio Dev. Hecho con 💙 por Fabrizio DEV
+
           </div>
-
-          <div class="form-group text-right">
-            <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4" [disabled]="!login.valid">
-              Iniciar Sesión
-            </button>
-          </div>
-        </form>
-
-        <div class="text-center mt-5 text-small">
-          Derechos de autor &copy; Fabrizio Dev. Hecho con 💙 por Fabrizio DEV
-
         </div>
-      </div>
+
     </div>
     <div class="mibkg col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="../../../assets/img/unsplash/login-bg.jpg">
       <div class="absolute-bottom-left index-2">
